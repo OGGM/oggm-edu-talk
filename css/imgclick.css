@@ -1,0 +1,4 @@
+img[name=ClickImage]:hover
+{
+  cursor:pointer;
+}

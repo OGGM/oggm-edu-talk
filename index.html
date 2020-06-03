@@ -1,0 +1,318 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>OGGM-Edu: an interactive platform to learn and teach about glaciers</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<!-- Custom img list -->
+		<link rel="stylesheet" href="css/imgclick.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	</head>
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="img/bkgd_1.jpg">
+					<h1>OGGM-Edu</h1>
+
+					<p><em>An interactive platform to learn (and teach)<br> about glaciers</em> </p>
+
+		  		<img class="plain" src="img/oggm_edu_s_alpha.png" height="140hv" align="middle">
+
+									<small>
+									  ACINN Graduate Seminar, 03.06.2020 <br> <br>
+									  <a href="http://fabienmaussion.info">Fabien Maussion</a>, <a href="https://github.com/pat-schmitt">Patrick Schmitt</a>, <a href="https://github.com/zschirmeister/">Zora Schirmeister</a> <br>
+									  <a href="https://www.uibk.ac.at/acinn">Department of Atmospheric and Cryospheric Sciences (ACINN)</a><br>
+									  <a href="http://uibk.ac.at">University of Innsbruck</a><br></td>
+									</small>
+
+				</section>
+
+				<section style="text-align: left;" data-background="img/bkgd_1.jpg">
+        <h3>Acknowledgments</h3>
+
+				<font size="6">
+				<p>The "Förderkreis 1669 – <b>Wissen</b>schafft Gesell<b>schaft</b>"</p>
+
+				<p>Google's nonprofit "Data Solutions for Change" program</p>
+
+				<p>OGGM-Edu contributors: <br> Lizz Ultee, Daniel Frisinghelli, Betka Medvedova <br> + OGGM and many open-source package contributors</p>
+			  </font>
+
+				<a href="https://www.uibk.ac.at/foerderkreis1669/" >
+		    <img class="plain" src="img/logo_1669_uibk.png" alt="Image missing" width="40%" />
+		    </a>
+		    <a href="https://cloud.google.com/data-solutions-for-change" >
+		    <img class="plain" src="img/feature-google-for-nonprofits-logo.svg" alt="Image missing" width="40%" />
+		    </a>
+
+
+				</section>
+
+				<section data-background="img/bkgd_1.jpg">
+
+				<h3>Agenda for today</h3>
+
+				<ol>
+				<li> <a href="#/why-oggm-edu">Why OGGM-Edu?</a> </li>
+				<li> <a href="#/os-model">The "Open Source model"</a> </li>
+				<li> <a href="#/graphics">Graphics</a> </li>
+				<li> <a href="#/apps">Interactive apps</a> </li>
+				<li> <a href="#/notebooks">Computational notebooks</a> </li>
+				<li> <a href="#/tech">Some technical details</a> </li>
+				</ol>
+
+				</section>
+
+
+				<section>
+				    <section id="why-oggm-edu" data-background="img/bkgd_1.jpg">
+							<h2>Why OGGM-Edu?</h2>
+				    </section>
+				    <section>
+							<a href="http://www.antarcticglaciers.org/glaciers-and-climate/"><img class="plain" src="img/ag.png" width=70%></a>
+
+							<div align="right">
+							<font size="2"><a href="http://www.antarcticglaciers.org">antarcticglaciers.org</a></font>
+							</div>
+						</section>
+				    <section>
+							<a href="https://www.staff.science.uu.nl/~oerle102/MM2011-all.pdf"><img class="plain" src="img/mgm.png" width=70%></a>
+
+							<div align="right">
+							<font size="2">"Minimal Glaciers Models" book, <a href="https://www.staff.science.uu.nl/~oerle102/">Johannes Oerlemans</a></font>
+							</div>
+						</section>
+						<section>
+							<video width="665" height="500" controls>
+						   <source src="img/phet_glaciers.mp4" type="video/mp4">
+						   Your browser does not support the video tag.
+						  </video>
+							<div align="right">
+							<font size="2">"Glaciers", <a href="https://phet.colorado.edu/sims/cheerpj/glaciers/latest/glaciers.html">https://phet.colorado.edu</a></font>
+							</div>
+				    </section>
+				    <section>
+							<a href="http://www.martinoleary.com/jsism/#"><img class="plain" src="img/jsiam.png" width=90%></a>
+
+							<div align="right">
+							<font size="2">Frank Pattyn, Martin O'Leary: <a href="http://www.martinoleary.com/jsism/#">JS-ISM</a>, An interactive ice sheet model</font>
+							</div>
+						</section>
+				    <section style="text-align: left;">
+						<p>Why <a href="http://edu.oggm.org">edu.oggm.org</a> ?</p>
+
+						<p>
+							<font size="6">
+							<ul>
+							<li class="fragment">A <b>complement</b> to existing online resources</li>
+							<li class="fragment">Focus on <b>numerical</b> models and <b>global themes</b> (OGGM) <br> but we are open to more topics</li>
+							<li class="fragment">Target group: <b>instructors</b> and independent learners</li>
+							<li class="fragment"><b>Open-source</b>, <b>decentralized</b> and <b>collaborative</b> content creation</li>
+							<li class="fragment">No HTML/Java/CSS/WordPress/...: Python programming language <br> (easier entry level for scientists)</li>
+							</ul>
+							</font>
+						</p>
+				  	</section>
+				</section>
+
+				<section>
+				    <section id="os-model" data-background="img/bkgd_1.jpg">
+							<h2>The Open Source model</h2>
+				    </section>
+						<section style="text-align: left;">
+							<ul>
+							<li>All content/code <a href="https://github.com/OGGM/oggm-edu">on GitHub</a> with an open license allowing reuse</li>
+							<li class="fragment">Content independent from the online layout</li>
+							<li class="fragment"><a href="https://hub.docker.com/u/oggm">Computational environments</a> and resources freely available (<a href="https://mybinder.org/">MyBinder</a>, OGGM-Hub)</li>
+							<li class="fragment"><a href="https://github.com/OGGM/oggm-edu-contrib">Independent/decentralized</a> content can be run on OGGM-Edu freely</li>
+							</ul>
+					  </section>
+				    <section>
+							<a href="https://raw.githubusercontent.com/OGGM/oggm-edu/master/docs/index.rst"><img class="plain" src="img/ss_1.png" width=42%></a>
+							<img class="plain" src="img/arr.png" width=5%>
+							<a href="https://edu.oggm.org"><img class="plain" src="img/ss_2.png" width=42%></a>
+				  	</section>
+
+				    <section style="text-align: left;">
+							<p>Application example: <a href="https://www.clubesdecienciaperu.org/">Clubes de Ciencia Peru</a> (Instructor: <a href="https://ehultee.github.io/">Lizz Ultee</a>)</p>
+							<a href="https://ehultee.github.io/teaching/glaciologia-CdeC19"><img class="plain" src="https://oggm.org/img/blog/oggm-edu-agu/cdec_pic.jpg" width=70%></a>
+
+							<div align="right">
+							<font size="2">Photo: T. León Rojas</font>
+							</div>
+					 </section>
+				</section>
+
+				<section>
+				    <section id="graphics" data-background="img/bkgd_2.jpg">
+							<h2>Graphics</h2>
+				    </section>
+						<section>
+
+								Glaciers and climate<br>
+
+							  <img src="img/intro/glacier_01.png" width=75% name="ClickImage" border=0 style="border:0; text-decoration:none; outline:none">
+
+								<div align="right">
+								<font size="2"> Click on the image to advance. Source: <a href="http://atelierlesgrosyeux.com/">Anne Maussion, Atelier les Gros yeux</a>.</font>
+								</div>
+
+				        <script>
+
+						    		//Declare an image array same as calling new Array();
+								    var img = []
+								    img[0] = "img/intro/glacier_01.png";
+								    img[1] = "img/intro/glacier_02.png";
+								    img[2] = "img/intro/glacier_03.png";
+								    img[3] = "img/intro/glacier_04.png";
+								    img[4] = "img/intro/glacier_05.png";
+								    img[5] = "img/intro/glacier_06.png";
+								    img[6] = "img/intro/glacier_07.png";
+								    img[7] = "img/intro/glacier_08.png";
+								    img[8] = "img/intro/glacier_09.png";
+								    img[9] = "img/intro/glacier_10.png";
+								    img[10] = "img/intro/glacier_11.png";
+
+								    //Select all elements on the page with the name attribute equal to VCRImage
+								    var images = document.querySelectorAll('[name=ClickImage]');
+
+								    //For each image bind the click event
+								    for(var i=0; i < images.length; i++)
+								    {
+								      var image = images[i];
+								      //https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener
+								      image.addEventListener('click', imageClicked(), false);
+								    }
+
+								    function imageClicked()
+								    {
+								      //Use a closure to wrap the counter variable
+								      //so each image element has their own unique counter
+								      var counter = 0;
+								      return function(event)
+								      {
+								        //Increment counter
+								        counter++;
+								        //The context of "this" is the image element
+								        //Use a modulus
+								        this.src = img[counter % img.length];
+								      }
+								    }
+								</script>
+						</section>
+
+						<section>
+
+								Glacier response time<br>
+
+								<img class="plain" src="img/response/tau_04.png" width=100%>
+
+								<div align="right">
+								<font size="2"> Source: <a href="https://edu.oggm.org">OGGM-Edu</a>.</font>
+								</div>
+
+						</section>
+				</section>
+
+				<section>
+				    <section id="apps" data-background="img/bkgd_4.jpg">
+							<h2>Interactive applications</h2>
+				    </section>
+            <section>
+							<ul>
+							<li><a href="https://edu.oggm.org/en/latest/gallery.html">Glacier Gallery</a></li>
+							<li><a href="https://edu.oggm.org/en/latest/explorer.html">World Glaciers Explorer</a></li>
+							<li><a href="https://edu.oggm.org/en/latest/simulator.html">Glacier Simulator</a></li>
+							<li><a href="https://edu.oggm.org/en/latest/alps_future.html">Future evolution of glaciers in the Alps</a></li>
+							</ul>
+				    </section>
+
+				</section>
+
+				<section>
+				    <section id="notebooks" data-background="img/bkgd_3.jpg">
+							<h2>Computational Notebooks</h2>
+				    </section>
+            <section>
+							<a href="https://mybinder.org/v2/gh/OGGM/binder/master?urlpath=git-pull?repo=https://github.com/OGGM/oggm-edu-notebooks%26amp%3Bbranch=master%26amp%3Burlpath=lab/tree/oggm-edu-notebooks/oggm-edu/welcome.ipynb%3Fautodecode"><img class="plain" src="img/notebooks.png" width=90%></a>
+					  </section>
+				</section>
+
+				<section>
+				    <section id="tech" data-background="img/bkgd_1.jpg">
+							<h2>Technical "details"</h2>
+				    </section>
+
+						<section>
+							<ul>
+							<li>Computational environments ("software capsules") hosted on <a href="https://hub.docker.com/u/oggm/r2d">Docker</a>, generated with <a href="https://repo2docker.readthedocs.io">Repo2Docker</a></li>
+							<li>Computational notebooks run in <a href="https://jupyter.org/">JupyterLab</a> hosted on <a href="https://mybinder.org/">MyBinder</a></li>
+							<li>Apps written in Python with the <a href="http://holoviz.org/">HoloViz</a> visualization ecosystem. Server on Google Cloud.</li>
+							<li>OGGM-Edu website generated with <a href="https://www.sphinx-doc.org">Sphinx</a> and hosted on <a href="https://readthedocs.org">ReadTheDocs</a></li>
+							</ul>
+					 </section>
+				</section>
+
+
+			<section style="text-align: left;" data-background="img/bkgd_4.jpg">
+
+		      <h2>Thank you!</h2>
+					These slides are available at <a href="https://oggm.org/oggm-edu-talk">oggm.org/oggm-edu-talk</a>
+					<br>	<br>
+
+					<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" /></a><br>
+					<small> Unless specified otherwise, this presentation is licensed under a <br> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license. </small>
+
+			</section>
+
+		</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'none', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
